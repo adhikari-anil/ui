@@ -98,7 +98,7 @@ Then go through one of the setup options below:
 
 ### Local Setup
 
-#### Step 1: Create `.env` File for Frontend Configuration
+#### Step 1: Create `.env` File for Frontend and Backend Configuration
 
 To configure the frontend, copy the `.env.example` file to a `.env` file in the `frontend/` directory (where `package.json` is located).
 
@@ -115,6 +115,28 @@ VITE_BASE_URL=http://localhost:4000
 VITE_APP_VERSION=0.1.0
 VITE_GIT_COMMIT_HASH=$GIT_COMMIT_HASH
 ```
+
+To configure the backend, copy the `.env.example` file to a `.env` file in the `backend/` directory.
+
+```bash
+cd backend/
+
+cp .env.example .env
+```
+
+**Example `.env` file:**
+
+```
+REDIS_HOST=localhost
+REDIS_PORT=6379
+CORS_ALLOWED_ORIGIN=http://localhost:5173
+DATABASE_URL=postgres://authuser:authpass123@localhost:5400/authdb?sslmode=disable
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+PORT=4000
+GIN_MODE=debug
+CORS_ALLOWED_ORIGIN=http://localhost:5173
+```
+
 
 > [!NOTE]
 > This is because `.env` files are intended to be a personal environment configuration file. The included `.env.example` in the repo is a standard that most other node projects include for the same purpose. You rename the file to `.env` and then change its contents to align with your system and personal needs.
